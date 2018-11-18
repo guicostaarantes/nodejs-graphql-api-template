@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { ObjectId } from 'mongodb'
 import mongodb from 'utils/mongodb'
 import { ApolloError } from 'apollo-server-express'
