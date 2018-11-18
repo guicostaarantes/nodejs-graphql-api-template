@@ -1,0 +1,87 @@
+{
+  "name": "nodejs-graphql-api-scaffolding",
+  "version": "1.0.0",
+  "description": "Scaffolding for a node/mongodb/graphql server.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/app.js",
+    "debug-build": "babel src -d debug-dist --watch --source-maps",
+    "build": "babel src -d dist"
+  },
+  "author": "guicostaarantes",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "wildcard",
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "typedefs": "./src/typedefs",
+            "resolvers": "./src/resolvers"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "extends": "standard",
+    "plugins": [
+      "import",
+      "promise"
+    ],
+    "rules": {
+      "promise/prefer-await-to-then": "error",
+      "promise/prefer-await-to-callbacks": "error",
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            "./*",
+            "../*"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "apollo-server": "^2.2.2",
+    "graphql": "^14.0.2",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.1.9",
+    "mz": "^2.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-wildcard": "^5.0.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.5",
+    "standard": "^12.0.1"
+  }
+}
