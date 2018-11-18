@@ -8,7 +8,6 @@ export default {
       const db = await mongodb
       const user = await db.collection('users').findOne({ _id: ObjectId(args.id) })
       if (!user || !user.active) return null
-      console.log()
       return { ...user, id: user._id.toString() }
     }
   },
@@ -41,7 +40,6 @@ export default {
       else if (emailAlreadyExists) return new ApolloError('Existing register for unique field "email".', 'RESOURCE_NOT_UNIQUE')
       else {
         const user = await db.collection('users').findOneAndUpdate({ _id: ObjectId(req.auth.sub) }, { $set: set })
-        console.log()
         return { ...user.value, ...set, id: user.value._id.toString() }
       }
     },
