@@ -7,8 +7,8 @@ extend type Query {
 }
 
 extend type Mutation {
-  createArticle(title: String!, text: String!, owner: ID!): Article
-  updateArticle(id: ID!, title: String, text: String): Article
+  createArticle(title: String!, text: String!): Article
+  updateArticle(id: ID!, newTitle: String, newText: String): Article
   deleteArticle(id: ID!): Boolean
 }
 
@@ -16,6 +16,7 @@ type Article {
   id: ID
   title: String
   text: String
+  owner: User
 }
 
 `
