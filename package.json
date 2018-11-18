@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-graphql-api-scaffolding",
+  "name": "nodejs-graphql-api-template",
   "version": "1.0.0",
-  "description": "Scaffolding for a node/mongodb/graphql server.",
+  "description": "Template for a node/mongodb/graphql server.",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/app.js",
