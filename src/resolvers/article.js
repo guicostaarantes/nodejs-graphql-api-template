@@ -14,7 +14,7 @@ export default {
   Mutation: {
     createArticle: async (parent, args, { req }) => {
       const db = await mongodb
-      const article = await db.collection('articles').insertOne({ ...args, owner: req.auth.sub })
+      const article = await db.collection('articles').insertOne({ ...args, owner: ObjectId(req.auth.sub) })
       return { ...article.ops[0], id: article.ops[0]._id.toString() }
     },
     updateArticle: async (parent, args, { req }) => {
